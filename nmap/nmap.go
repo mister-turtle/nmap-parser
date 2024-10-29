@@ -39,6 +39,9 @@ func (o Outputter) Run() error {
 		for _, port := range host.Ports {
 			for _, address := range host.Addresses {
 
+				if port.State != "open" {
+					continue
+				}
 				// output to "all" file first
 				err := o.output("all", address.Addr, port.PortId)
 				if err != nil {
