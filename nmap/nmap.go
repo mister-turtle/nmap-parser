@@ -39,7 +39,7 @@ func (o Outputter) Run() error {
 		for _, port := range host.Ports {
 			for _, address := range host.Addresses {
 
-				if port.State != "open" {
+				if port.State.State != "open" {
 					continue
 				}
 				// output to "all" file first
